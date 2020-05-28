@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.utils.html import format_html
 import uuid
 from datetime import date
 
@@ -53,7 +54,7 @@ class Book(models.Model):
     genre = models.ManyToManyField(Genre, help_text="Select a Genre for this field")
 
     def __str__(self):
-        return title
+        return self.title
 
     # Display the 3 or lesser genres in admin site as strings
     def display_genre(self):
@@ -94,9 +95,14 @@ class BookInstance(models.Model):
             return True
         return False
 
-
-
+    def colored_status(self):
+        if(self.is_overdue):
+            # For every field that has choices set, the object will have a 
+            # get_FOO_display() method, where FOO is the name of the field. 
+            # This method returns the “human-readable” value of the field.
+            # For eg., here FOO= status
+            return format_html('<span style="color: #{};">{}</span>',"FF0000",self.get_status_display())
+        return self.get_status_display()
     
-
 
 
