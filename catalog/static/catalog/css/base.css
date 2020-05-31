@@ -1,0 +1,22 @@
+.side-nav-bar
+{
+    background-color: aqua;
+    border: 2px solid black;
+    height: 100vh;
+}
+
+.side-bar-title
+{
+    margin-top: 20px;
+    box-shadow: black;
+}
+
+.side-bar-content
+{
+    margin-top: 20px;
+}
+
+.main-content
+{
+    margin-top: 20px;
+}
