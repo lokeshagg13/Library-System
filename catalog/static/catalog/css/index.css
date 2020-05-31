@@ -18,3 +18,9 @@ li
 {
     margin: 10px;
 }
+
+table.home-info-search,td
+{
+    border: 2px solid black;
+    padding: 20px;
+}

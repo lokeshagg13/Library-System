@@ -30,6 +30,7 @@ class BookListView(generic.ListView):
     # by default, it searches for a template in 
     # LocalLibrary/catalog/templates/catalog/book_list.html
     # Also, the default template variable is object_list or book_list
+    paginate_by = 10
 
 class BookDetailView(generic.DetailView):
     model = Book
@@ -42,7 +43,7 @@ class AuthorListView(generic.ListView):
     # by default, it searches for a template in 
     # LocalLibrary/catalog/templates/catalog/author_list.html
     # Also, the default template variable is object_list or author_list
-
+    paginate_by = 10
 
 class AuthorDetailView(generic.DetailView):
     model = Author

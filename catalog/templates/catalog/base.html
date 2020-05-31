@@ -41,6 +41,41 @@
             <div class="main-content col-sm-8 col-lg-8">
                 <!-- For the remaining content in every page -->
                 {% block content %} {% endblock %}
+
+                {% block pagination %} 
+                    {% if is_paginated %}
+                        <div class="paginated-area">
+                            <div class="inner-page-area">
+                                <ul class="pagination">
+                                    {% if page_obj.has_previous %}
+                                    <li class="page-item">
+                                        <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}" class="page-link">
+                                            Previous
+                                        </a>
+                                    </li>
+                                    {% endif %}
+
+                                    {% with ''|center:page_obj.paginator.num_pages as pages %}
+                                    {% for _ in pages %}
+                                        <li class="page-item {% if forloop.counter == page_obj.number %}active{% endif %}">
+                                            <a href="{{ request.path }}?page={{ forloop.counter }}" class="page-link">{{forloop.counter}}</a>
+                                        </li>
+                                    {% endfor %}
+                                    {% endwith %}
+
+                                    {% if page_obj.has_next %}
+                                    <li class="page-item">
+                                        <a href="{{ request.path }}?page={{page_obj.next_page_number }}" class="page-link">
+                                            Next
+                                        </a>
+                                    </li>
+                                    {% endif %}
+                                </div>
+                                </ul>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endblock %}
             </div>
         </div>
     </div>

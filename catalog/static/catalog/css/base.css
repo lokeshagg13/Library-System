@@ -1,8 +1,13 @@
+html,body,div.container-fluid,div.row
+{
+    height: 100%;
+}
+
 .side-nav-bar
 {
     background-color: aqua;
     border: 2px solid black;
-    height: 100vh;
+    min-height: 100%;
 }
 
 .side-bar-title
@@ -19,4 +24,17 @@
 .main-content
 {
     margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: max-content;
+}
+
+div.paginated-area
+{
+    padding-top: 20px;
+    text-align: center;
+}
+
+div.inner-page-area
+{
+    display: inline-block;
 }
