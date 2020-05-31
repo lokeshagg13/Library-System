@@ -30,10 +30,10 @@ class Author(models.Model):
     date_of_death = models.DateField('Died', null=True, blank=True)
 
     class Meta:
-        ordering=['last_name','first_name']
+        ordering=['first_name','last_name']
 
     def __str__(self):
-        return '{0}, {1}'.format(self.last_name,self.first_name)
+        return '{0} {1}'.format(self.first_name,self.last_name)
     
     # Need to create the views and templates for book-detail
     def get_absolute_url(self):
@@ -64,6 +64,9 @@ class Book(models.Model):
     # Need to create the views and templates for book-detail
     def get_absolute_url(self):
         return reverse('book-detail', args=[str(self.id)])
+
+    def get_available_copies(self):
+        return BookInstance.objects.filter(book=self).filter(status='a')
 
 #--------------------------------------------------------------------------------------------#
 #--------------------------------------------------------------------------------------------#

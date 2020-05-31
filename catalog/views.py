@@ -49,4 +49,3 @@ class AuthorDetailView(generic.DetailView):
     # by default, it searches for a template in 
     # LocalLibrary/catalog/templates/catalog/author_detail.html
     # Also, the default template variable is object or author
-
