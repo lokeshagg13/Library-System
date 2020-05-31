@@ -36,3 +36,17 @@ class BookDetailView(generic.DetailView):
     # by default, it searches for a template in 
     # LocalLibrary/catalog/templates/catalog/book_detail.html
     # Also, the default template variable is object or book
+
+class AuthorListView(generic.ListView):
+    model = Author
+    # by default, it searches for a template in 
+    # LocalLibrary/catalog/templates/catalog/author_list.html
+    # Also, the default template variable is object_list or author_list
+
+
+class AuthorDetailView(generic.DetailView):
+    model = Author
+    # by default, it searches for a template in 
+    # LocalLibrary/catalog/templates/catalog/author_detail.html
+    # Also, the default template variable is object or author
+
