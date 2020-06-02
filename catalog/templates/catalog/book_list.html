@@ -28,8 +28,8 @@
                             </div>
                         </td>
                         <td class="book-author">
-                            <div class="book-author">
-                                {{ book.author }}
+                            <div class="book-author" id="{{book.author.pk}}">
+                                <a href="{{ book.author.get_absolute_url }}">{{ book.author }}</a>
                             </div>
                         </td>
                     </tr>

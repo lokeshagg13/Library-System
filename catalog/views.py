@@ -3,6 +3,8 @@ from django.views import generic
 
 from catalog.models import Book, BookInstance, Author, Genre
 
+from catalog.filters import BookFilter
+
 def index(request):
     
     # Total number of books and book instances
@@ -50,3 +52,8 @@ class AuthorDetailView(generic.DetailView):
     # by default, it searches for a template in 
     # LocalLibrary/catalog/templates/catalog/author_detail.html
     # Also, the default template variable is object or author
+
+def searchBook(request):
+    book_list = Book.objects.all()
+    book_filter = BookFilter(request.GET,queryset = book_list)
+    return render(request,'catalog/book_filter.html',{'book_filter': book_filter})
