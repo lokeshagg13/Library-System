@@ -35,9 +35,11 @@ class Author(models.Model):
     def __str__(self):
         return '{0} {1}'.format(self.first_name,self.last_name)
     
-    # Need to create the views and templates for book-detail
     def get_absolute_url(self):
         return reverse('author-detail', args=[str(self.id)])
+
+    def get_books(self):
+        return Book.objects.filter(author=self)
 
 #--------------------------------------------------------------------------------------------#
 #--------------------------------------------------------------------------------------------#
@@ -61,7 +63,6 @@ class Book(models.Model):
         return ', '.join([genre.name for genre in self.genre.all()[:3]])
     display_genre.short_description = 'Genre'
 
-    # Need to create the views and templates for book-detail
     def get_absolute_url(self):
         return reverse('book-detail', args=[str(self.id)])
 

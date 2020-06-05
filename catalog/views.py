@@ -3,7 +3,7 @@ from django.views import generic
 
 from catalog.models import Book, BookInstance, Author, Genre
 
-from catalog.filters import BookFilter
+from catalog.filters import BookFilter, AuthorFilter
 
 def index(request):
     
@@ -57,3 +57,9 @@ def searchBook(request):
     book_list = Book.objects.all()
     book_filter = BookFilter(request.GET,queryset = book_list)
     return render(request,'catalog/book_filter.html',{'book_filter': book_filter})
+
+def searchAuthor(request):
+    author_list = Author.objects.all()
+    author_filter = AuthorFilter(request.GET,queryset = author_list)
+    print(request.GET)
+    return render(request,'catalog/author_filter.html',{'author_filter': author_filter})

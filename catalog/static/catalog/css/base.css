@@ -21,10 +21,12 @@ html,body,div.container-fluid,div.row
     margin-top: 20px;
 }
 
-.main-content
+div.main-content
 {
     margin-top: 20px;
     margin-bottom: 20px;
+    display: inline-block;
+    text-align: center;
 }
 
 div.paginated-area
@@ -33,7 +35,10 @@ div.paginated-area
     text-align: center;
 }
 
-div.inner-page-area
+div
 {
     display: inline-block;
+    width: inherit;
+    text-align: center;
 }
+

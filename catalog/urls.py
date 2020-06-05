@@ -8,6 +8,7 @@ urlpatterns = [
     path('books/book/<int:pk>', views.BookDetailView.as_view(), name='book-detail'),
     path('authors/', views.AuthorListView.as_view(), name='author-list'),
     path('authors/author/<int:pk>', views.AuthorDetailView.as_view(), name='author-detail'),
-    re_path(r'^searchBook/$', views.searchBook, name='book-search')
+    re_path(r'^searchBook/$', views.searchBook, name='book-search'),
+    re_path(r'^searchAuthor/$', views.searchAuthor, name='author-search')
 
 ]

@@ -25,7 +25,7 @@ Filtering for author also -->
             <div class="book-info-search">
                 <div class="card form-group">
                     <h6>Book Title</h6>
-                    {% render_field book_filter.form.title class="form-control" placeholder="Enter Book Title" %}
+                    {% render_field book_filter.form.title class="form-control book-title" placeholder="Enter Book Title" %}
                 </div>
                 <div class="card form-group">
                     <h6>Book Author</h6>
@@ -36,12 +36,10 @@ Filtering for author also -->
                 </div>
                 <div class="card form-group">
                     <h6>Genre</h6>
-                    <select class="form-control" multiple="multiple">
-                        <option value="" selected="selected">None</option>
-                        {% for genre in book_filter.form.genre|slice:"1:" %}
-                            {{genre}}
-                        {% endfor %}
-                    </select>
+                    {% render_field book_filter.form.genre class="form-control genre-list" %}
+                    <script>
+                        document.querySelector('select#id_genre').innerHTML = '<option value="">None</option>' + document.querySelector('select#id_genre').innerHTML
+                    </script>
                 </div>
                 <div class="card form-group">
                     <h6>Language</h6>
